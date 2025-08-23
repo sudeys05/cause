@@ -1,0 +1,72 @@
+==> Cloning from https://github.com/sudeys05/chapter
+==> Checking out commit f966957e6b3a3ba028079e7ec44a7da94c36582b in branch main
+==> Using Node.js version 22.16.0 (default)
+==> Docs on specifying a Node.js version: https://render.com/docs/node-version
+==> Running build command 'npm install && npm run build:prod'...
+added 517 packages, and audited 518 packages in 11s
+71 packages are looking for funding
+  run `npm fund` for details
+2 moderate severity vulnerabilities
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+Run `npm audit` for details.
+> rest-express@1.0.0 build:prod
+> vite build && mkdir -p dist/server && npx tsc server/index.ts --outDir dist/server --module CommonJS --target ES2020 --moduleResolution node --allowSyntheticDefaultImports --esModuleInterop --skipLibCheck --allowJs && cp server/*.js dist/server/ 2>/dev/null || true
+vite v5.4.19 building for production...
+transforming...
+✓ 1646 modules transformed.
+rendering chunks...
+computing gzip size...
+../dist/public/index.html                   0.67 kB │ gzip:   0.41 kB
+../dist/public/assets/index-Cz-RFeKa.css  137.50 kB │ gzip:  25.86 kB
+../dist/public/assets/index-DX2G31Lg.js   502.25 kB │ gzip: 134.98 kB
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 2.72s
+server/index.ts(13,34): error TS1343: The 'import.meta' meta-property is only allowed when the '--module' option is 'es2020', 'es2022', 'esnext', 'system', 'node16', 'node18', 'node20', or 'nodenext'.
+==> Uploading build...
+==> Uploaded in 6.6s. Compression took 3.3s
+==> Build successful 🎉
+==> Deploying...
+==> Running 'npm run start:prod'
+> rest-express@1.0.0 start:prod
+> NODE_ENV=production node dist/server/index.js
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+Error: Cannot find module '/opt/render/project/src/dist/server/index.js'
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+Node.js v22.16.0
+==> Exited with status 1
+==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
+==> Running 'npm run start:prod'
+> rest-express@1.0.0 start:prod
+> NODE_ENV=production node dist/server/index.js
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+Error: Cannot find module '/opt/render/project/src/dist/server/index.js'
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+Node.js v22.16.0
