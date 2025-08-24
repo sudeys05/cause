@@ -113,16 +113,14 @@ async function startServer() {
 
     // Production: serve React static files
     if (process.env.NODE_ENV === 'production') {
-      const buildPath = path.join(__dirname, '../dist/public');
-      app.use(express.static(buildPath));
-      app.get('*', (req, res) => {
-        if (!req.path.startsWith('/api')) {
-          res.sendFile(path.join(buildPath, 'index.html'));
-        }
-      });
-    } else {
-      console.log('⚠️ Development mode: Vite server should handle frontend.');
+  const buildPath = path.join(__dirname, '../public'); // frontend build
+  app.use(express.static(buildPath));
+  app.get('*', (req, res) => {
+    if (!req.path.startsWith('/api')) {
+      res.sendFile(path.join(buildPath, 'index.html'));
     }
+  });
+}
 
     const port = parseInt(process.env.PORT || '5000', 10);
     server.listen(port, '0.0.0.0', () => {
