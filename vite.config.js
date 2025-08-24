@@ -12,13 +12,11 @@ export default defineConfig({
   root: 'client',              // Vite's project root (frontend)
   publicDir: 'public',         // Public assets folder inside 'client'
   build: {
-   outDir: 'dist/public', // relative to project root
-  emptyOutDir: true,// Output frontend build for backend to serve
-    emptyOutDir: true,
+    outDir: path.resolve(__dirname, 'dist/public'), // absolute path for production build
+    emptyOutDir: true,        // clear the folder before build
     sourcemap: false,
     rollupOptions: {
       output: {
-        // Optional: separate React dependencies into a vendor chunk
         manualChunks: {
           react: ['react', 'react-dom'],
         },
@@ -28,7 +26,6 @@ export default defineConfig({
   server: {
     port: 5173,                 // Frontend dev server
     proxy: {
-      // Proxy API requests to backend dev server
       '/api': {
         target: 'http://localhost:5000',
         changeOrigin: true,
