@@ -4,13 +4,11 @@
   "type": "module",
   "license": "MIT",
 "scripts": {
-  "dev": "NODE_ENV=development tsx server/index.ts",
-  "build:backend": "tsc",
+  "build:backend": "tsc --project tsconfig.json",
   "build:frontend": "vite build",
   "build": "npm run build:backend && npm run build:frontend",
   "start": "NODE_ENV=production node dist/server/index.js",
-  "start:dev": "NODE_ENV=development tsx server/index.ts",
-  "check": "tsc"
+  "start:dev": "NODE_ENV=development tsx server/index.ts"
 },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
