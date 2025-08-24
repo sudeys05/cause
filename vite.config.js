@@ -12,7 +12,8 @@ export default defineConfig({
   root: 'client',              // Vite's project root (frontend)
   publicDir: 'public',         // Public assets folder inside 'client'
   build: {
-    outDir: '../dist/public',   // Output frontend build for backend to serve
+   outDir: 'dist/public', // relative to project root
+  emptyOutDir: true,// Output frontend build for backend to serve
     emptyOutDir: true,
     sourcemap: false,
     rollupOptions: {
