@@ -112,9 +112,11 @@ async function startServer() {
     }
 
     // Production: serve React static files
-    if (process.env.NODE_ENV === 'production') {
-  const buildPath = path.join(__dirname, '../public'); // frontend build
+   if (process.env.NODE_ENV === 'production') {
+  const buildPath = path.join(process.cwd(), 'dist/public');
+
   app.use(express.static(buildPath));
+
   app.get('*', (req, res) => {
     if (!req.path.startsWith('/api')) {
       res.sendFile(path.join(buildPath, 'index.html'));
