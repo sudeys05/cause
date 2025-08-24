@@ -8,7 +8,7 @@
     "build:backend": "tsc --outDir dist/server --module ESNext --target ES2020 --moduleResolution node --esModuleInterop --allowSyntheticDefaultImports",
     "build:frontend": "vite build",
     "build": "npm run build:backend && npm run build:frontend",
-    "start": "NODE_ENV=production tsx dist/server/index.ts",
+    "start": "NODE_ENV=production node dist/server/index.js",
     "start:dev": "NODE_ENV=development tsx server/index.ts"
   },
   "dependencies": {
